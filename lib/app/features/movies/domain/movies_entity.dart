@@ -1,7 +1,7 @@
-import 'package:flutter_desafio04_movie_app/app/features/domain/comments_entity.dart';
-import 'package:flutter_desafio04_movie_app/app/features/domain/created_by_entity.dart';
-import 'package:flutter_desafio04_movie_app/app/features/domain/movie_entity.dart';
-import 'package:flutter_desafio04_movie_app/app/features/domain/objects_ids_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/comments_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/created_by_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/movie_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/objects_ids_entity.dart';
 
 class Movies {
   Movies({
