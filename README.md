@@ -1,16 +1,18 @@
-# flutter_desafio04_movie_app
+# Comandos GIT
+## Comandos GIT
+iniciar o projeto ```git init```
 
-A new Flutter project.
+Criar recurso ```git checkout -b nome_branch```
 
-## Getting Started
+Para publicar:
+Primeiro deve-se adicionar as informações(diretórios e arquivos):
+```git add .```
 
-This project is a starting point for a Flutter application.
+Segundo deve-se realizar o commit com a mensagem:
+```git commit -m````
 
-A few resources to get you started if this is your first Flutter project:
+Terceiro deve-se enviar para a branch remote:
+```git push```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Finalizar recurso ```git checkout branch```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
