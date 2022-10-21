@@ -16,7 +16,7 @@ Criar recurso:
 
 - Terceiro deve-se enviar para a branch remote:
     - No primeiro commit deve-se informar o repositório remoto e a branch:
-    ```git push -u origin master````
+    ```git push -u origin master```
 
     - Nos demais commits basta informar o comando:
 ```git push```
