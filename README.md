@@ -1,11 +1,14 @@
 # Comandos GIT
-
 ## Comandos Gerais:
-Iniciar o projeto:
+- Iniciar o projeto:
 ```git init```
 
-Criar recurso:
+- Criar recurso:
 ```git checkout -b name_branch```
+
+- Antes de começar a trabalhar:
+    - Puxar todas as alterações na branch se houver:
+    ```git pull```
 
 ## Comandos para os módulos:
 - Primeiro deve-se adicionar as informações(diretórios e arquivos):
@@ -19,7 +22,7 @@ Criar recurso:
     ```git push -u origin master```
 
     - Nos demais commits basta informar o comando:
-```git push```
+    ```git push```
 
 - Finalizar recurso 
 ```git checkout branch```

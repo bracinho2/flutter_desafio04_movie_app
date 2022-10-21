@@ -1,5 +1,5 @@
-import 'package:flutter_desafio04_movie_app/app/features/movies/domain/movies_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/movie_entity.dart';
 
 abstract class IMoviesRepository {
-  Future<Movies> getMovies();
+  Future<List<MovieEntity>> getMovies();
 }
