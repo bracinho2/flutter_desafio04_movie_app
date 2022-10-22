@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_client_errors.dart';
-import 'package:flutter_desafio04_movie_app/app/features/movies/domain/movie_entity.dart';
-import 'package:flutter_desafio04_movie_app/app/features/movies/repositories/get_all_movies_repository.dart';
-import 'package:flutter_desafio04_movie_app/app/features/movies/usecases/get_all_movies_usecase.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/movie_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/repositories/get_all_movies_repository.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/usecases/get_all_movies_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

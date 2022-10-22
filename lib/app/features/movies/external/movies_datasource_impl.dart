@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_client_errors.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service.dart';
-import 'package:flutter_desafio04_movie_app/app/features/infra/datasource/movie_datasource.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/infra/datasource/get_all_movies_datasource.dart';
 
-class MoviesDatasourceImpl implements IMovieDatasource {
+class MoviesDatasourceImpl implements IGetAllMoviesDatasource {
   final HttpClient _httpClient;
 
   MoviesDatasourceImpl(this._httpClient);
   @override
-  Future<List<Map<String, dynamic>>> call() async {
+  Future<List<Map<String, dynamic>>> getMovies() async {
     try {
       final response = await _httpClient.fetch(path: 'path');
       return [response];

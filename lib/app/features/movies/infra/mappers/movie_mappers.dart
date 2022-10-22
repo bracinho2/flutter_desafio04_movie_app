@@ -1,7 +1,7 @@
-import 'package:flutter_desafio04_movie_app/app/features/movies/domain/movie_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/movie_entity.dart';
 
 class MovieMapper {
-  static fromMap(Map<String, dynamic> map) {
+  static MovieEntity fromMap(Map<String, dynamic> map) {
     return MovieEntity(
       id: map['id'],
       name: map['name'],
