@@ -6,6 +6,8 @@
 - Criar recurso:
 ```git checkout -b name_branch```
 
+- Setar a Brach Padrao para Developer no Site;
+
 - Antes de começar a trabalhar:
     - Puxar todas as alterações na branch se houver:
     ```git pull```
