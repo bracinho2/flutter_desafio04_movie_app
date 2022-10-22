@@ -27,3 +27,10 @@
 - Finalizar recurso 
 ```git checkout branch```
 
+## Comandos para Merge
+- Após o checkout vá para a branch developer:
+    - Faça o merge entre branch:
+    ```git merge branch```
+
+    - Vá ao site para aceitar as pulls;
+
