@@ -7,7 +7,7 @@ class UsecaseError extends Failure {
   final String? label;
 
   UsecaseError({
-    this.message = 'HttpClient Error',
+    this.message = 'Usecase Error',
     this.stackTrace,
     this.label,
   }) : super(
