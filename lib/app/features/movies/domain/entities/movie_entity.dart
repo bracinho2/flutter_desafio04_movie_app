@@ -1,12 +1,11 @@
-enum MovieCategory { Series, Movies, Animation, War }
-
-enum MovieLevel { Easy, Medium, High }
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/category_movie_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/level_movie_entity.dart';
 
 class MovieEntity {
   final int id;
   final String name;
-  final MovieLevel level;
-  final MovieCategory category;
+  final LevelMovieEntity level;
+  final CategoryEntity category;
   final double evaluation;
   final String accent;
   final String imagePath;

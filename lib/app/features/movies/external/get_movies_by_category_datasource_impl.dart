@@ -1,18 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_client_errors.dart';
-
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/category_movie_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/infra/datasource/get_movies_by_category_datasource.dart';
 
-class DioHttpClientImpl implements HttpClientService {
-  final Dio _dio;
+class GetMoviesByCategoryDatasourceImpl
+    implements IGetMoviesByCategoryDatasource {
+  final HttpClientService _httpClient;
 
-  DioHttpClientImpl(this._dio);
+  GetMoviesByCategoryDatasourceImpl(this._httpClient);
   @override
-  Future<List<Map<String, dynamic>>> fetch({required String path}) async {
+  Future<List<Map<String, dynamic>>> getMovies(
+      {required CategoryEntity category}) async {
+    final urlBase = category.name;
     try {
-      final response = await _dio.get(path);
-      final values = response.data;
-      return values;
+      final response = await _httpClient.fetch(path: urlBase);
+      return response;
     } on DioError catch (e, stackTrace) {
       if (e.response!.statusCode == 404) {
         throw HttpClientError(message: 'O servidor não foi encontrado!');

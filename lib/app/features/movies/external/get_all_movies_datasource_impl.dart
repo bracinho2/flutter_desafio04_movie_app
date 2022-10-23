@@ -3,15 +3,15 @@ import 'package:flutter_desafio04_movie_app/app/core/http_service/http_client_er
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/infra/datasource/get_all_movies_datasource.dart';
 
-class MoviesDatasourceImpl implements IGetAllMoviesDatasource {
-  final HttpClient _httpClient;
+class GetAllMoviesDatasourceImpl implements IGetAllMoviesDatasource {
+  final HttpClientService _httpClient;
 
-  MoviesDatasourceImpl(this._httpClient);
+  GetAllMoviesDatasourceImpl(this._httpClient);
   @override
   Future<List<Map<String, dynamic>>> getMovies() async {
     try {
       final response = await _httpClient.fetch(path: 'path');
-      return [response];
+      return response;
     } on DioError catch (e, stackTrace) {
       if (e.response!.statusCode == 404) {
         throw HttpClientError(message: 'O servidor não foi encontrado!');
