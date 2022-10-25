@@ -5,6 +5,7 @@ class CategoryMapper {
     return CategoryEntity(
       id: int.parse(map['id']),
       name: map['name'],
+      selected: map['selected'],
     );
   }
 }

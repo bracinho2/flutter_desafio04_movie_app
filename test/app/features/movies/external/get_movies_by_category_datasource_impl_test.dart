@@ -16,7 +16,7 @@ void main() {
     datasource = GetMoviesByCategoryDatasourceImpl(http);
   });
 
-  final category = CategoryEntity(id: 01, name: 'name');
+  final category = CategoryEntity(id: 01, name: 'name', selected: true);
 
   final urlBase = category.name;
 

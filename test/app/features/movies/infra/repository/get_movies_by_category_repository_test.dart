@@ -18,7 +18,7 @@ void main() {
     repository = GetMoviesByCategoryRepositoryImpl(datasource);
   });
 
-  final category = CategoryEntity(id: 01, name: 'name');
+  final category = CategoryEntity(id: 01, name: 'name', selected: true);
 
   List<Map<String, dynamic>> dummyList = [
     {

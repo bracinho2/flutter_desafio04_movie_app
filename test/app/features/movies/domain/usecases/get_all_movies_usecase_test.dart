@@ -15,7 +15,7 @@ void main() {
   late GetAllMoviesImpl getAllMoviesImpl;
 
   final level = LevelMovieEntity(id: 01, name: 'name');
-  final category = CategoryEntity(id: 01, name: 'name');
+  final category = CategoryEntity(id: 01, name: 'name', selected: true);
 
   final movies = [
     MovieEntity(

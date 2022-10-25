@@ -25,7 +25,7 @@ class _MoviesPageState extends State<MoviesPage> {
             SliverToBoxAdapter(
               child: TextTitleWidget(title: 'Categories'),
             ),
-            CustomSliverHorizontalBar(),
+            CategoryFilterWidget(),
           ],
         ),
       ),
@@ -33,15 +33,15 @@ class _MoviesPageState extends State<MoviesPage> {
   }
 }
 
-class CustomSliverHorizontalBar extends StatelessWidget {
-  const CustomSliverHorizontalBar({Key? key}) : super(key: key);
+class CategoryFilterWidget extends StatelessWidget {
+  const CategoryFilterWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
     return SliverToBoxAdapter(
       child: SizedBox(
-        height: Responsivity.automatic(95, mediaQueryData),
+        height: Responsivity.automatic(30, mediaQueryData),
         child: Padding(
           padding:
               EdgeInsets.only(left: Responsivity.automatic(10, mediaQueryData)),
@@ -74,38 +74,30 @@ class CustomHorizontalMenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
     return Padding(
-      padding:
-          EdgeInsets.only(left: Responsivity.automatic(16, mediaQueryData)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Container(
-            padding: EdgeInsets.all(Responsivity.automatic(12, mediaQueryData)),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(
-                  Responsivity.automatic(17, mediaQueryData)),
-              color: clicked ? Colors.blue[800] : Colors.black26,
-            ),
-            child: Row(
-              children: [
-                if (name.isNotEmpty)
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: Responsivity.automatic(8, mediaQueryData),
-                      right: Responsivity.automatic(8, mediaQueryData),
-                    ),
-                    child: Text(
-                      name,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  )
-              ],
-            ),
-          )
-        ],
+      padding: EdgeInsets.only(left: Responsivity.automatic(8, mediaQueryData)),
+      child: Container(
+        padding: EdgeInsets.only(
+            left: Responsivity.automatic(12, mediaQueryData),
+            right: Responsivity.automatic(12, mediaQueryData)),
+        decoration: BoxDecoration(
+          borderRadius:
+              BorderRadius.circular(Responsivity.automatic(20, mediaQueryData)),
+          color: clicked ? Colors.blue[800] : Colors.black26,
+        ),
+        child: Row(
+          children: [
+            if (name.isNotEmpty)
+              Padding(
+                padding: EdgeInsets.only(
+                  left: Responsivity.automatic(8, mediaQueryData),
+                  right: Responsivity.automatic(8, mediaQueryData),
+                ),
+                child: Text(
+                  name,
+                ),
+              )
+          ],
+        ),
       ),
     );
   }
