@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 final primaryColor = Colors.blueGrey[900]!;
+const secundaryColor = Colors.white;
 
 final appTheme = ThemeData(
   //ESQUEMA DE CORES
   primaryColor: primaryColor,
+
+  scaffoldBackgroundColor: primaryColor,
 
   //Scaffold backgroud color
   backgroundColor: primaryColor,
@@ -29,31 +32,23 @@ final appTheme = ThemeData(
     ),
   ),
 
+  //Icon
+  iconTheme: const IconThemeData(
+    color: secundaryColor,
+  ),
+
   //TEXTOS
-  textTheme: TextTheme(
-    displayLarge: TextStyle(
-      fontSize: 40,
-      fontWeight: FontWeight.bold,
-      color: primaryColor,
-    ),
-    labelLarge: const TextStyle(
+  textTheme: const TextTheme(
+    labelMedium: TextStyle(
       fontFamily: 'Roboto',
-      fontSize: 20,
-      color: Colors.black26,
+      fontSize: 16,
+      //fontWeight: FontWeight.bold,
+      color: Colors.white,
     ),
-    titleLarge: const TextStyle(
+    titleLarge: TextStyle(
       fontFamily: 'Roboto',
       fontSize: 30,
-      fontWeight: FontWeight.bold,
-    ),
-    titleMedium: const TextStyle(
-      fontFamily: 'Roboto',
-      fontSize: 20,
-    ),
-    titleSmall: const TextStyle(
-      fontFamily: 'Roboto',
-      fontSize: 17,
-      fontWeight: FontWeight.bold,
+      color: secundaryColor,
     ),
   ),
 
@@ -68,13 +63,14 @@ final appTheme = ThemeData(
         Radius.circular(5),
       ),
     ),
-    labelStyle: TextStyle(
+    labelStyle: const TextStyle(
       fontFamily: 'Roboto',
       fontSize: 14,
-      color: primaryColor,
+      color: secundaryColor,
     ),
     iconColor: primaryColor,
     prefixIconColor: primaryColor,
+    suffixIconColor: secundaryColor,
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(color: primaryColor, width: 0.0),
       borderRadius: const BorderRadius.all(

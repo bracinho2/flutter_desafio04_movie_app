@@ -1,6 +1,8 @@
-import 'dart:math';
-
+import 'package:cambona/responsivity/responsivity.dart';
+import 'package:cambona/widgets/app_bar_widget.dart';
+import 'package:cambona/widgets/text_title_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/category_movie_entity.dart';
 
 class MoviesPage extends StatefulWidget {
   const MoviesPage({super.key});
@@ -9,45 +11,113 @@ class MoviesPage extends StatefulWidget {
   State<MoviesPage> createState() => _MoviesPageState();
 }
 
-final images = [
-  'https://images.unsplash.com/photo-1586953484900-568ad9b360d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
-  'https://images.unsplash.com/photo-1620736663824-18f7d3a79d54?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
-  'https://images.unsplash.com/photo-1540558159980-df5705e37f6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
-  'https://images.unsplash.com/photo-1517057970663-5d535acb0b3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-  'https://images.unsplash.com/photo-1628448433960-e9d7b306dd9a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1400&q=80',
-  'https://images.unsplash.com/photo-1628448433947-a0e350bba5ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1519&q=80',
-];
-
-int generateInt() {
-  final value = Random().nextInt(images.length);
-  print(value);
-
-  return value;
-}
-
 class _MoviesPageState extends State<MoviesPage> {
   @override
-  void initState() {
-    super.initState();
-    generateInt();
+  Widget build(BuildContext context) {
+    return const SafeArea(
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              expandedHeight: 85,
+              flexibleSpace: AppBarMainWidget(),
+            ),
+            SliverToBoxAdapter(
+              child: TextTitleWidget(title: 'Categories'),
+            ),
+            CustomSliverHorizontalBar(),
+          ],
+        ),
+      ),
+    );
   }
+}
+
+class CustomSliverHorizontalBar extends StatelessWidget {
+  const CustomSliverHorizontalBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-      //   title: const Text('Movies App'),
-      // ),
-      body: Container(
-        height: 450,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.fitWidth,
-            image: NetworkImage(images[generateInt()]),
+    final mediaQueryData = MediaQuery.of(context);
+    return SliverToBoxAdapter(
+      child: SizedBox(
+        height: Responsivity.automatic(95, mediaQueryData),
+        child: Padding(
+          padding:
+              EdgeInsets.only(left: Responsivity.automatic(10, mediaQueryData)),
+          child: ListView.builder(
+            clipBehavior: Clip.none,
+            scrollDirection: Axis.horizontal,
+            itemCount: 6,
+            itemBuilder: ((context, index) => CustomHorizontalMenuItem(
+                  clicked: filterMenuItemList[index].selected,
+                  name: filterMenuItemList[index].name,
+                )),
           ),
         ),
       ),
     );
   }
 }
+
+class CustomHorizontalMenuItem extends StatelessWidget {
+  final bool clicked;
+  final String name;
+
+  const CustomHorizontalMenuItem({
+    Key? key,
+    required this.clicked,
+    required this.name,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final mediaQueryData = MediaQuery.of(context);
+    return Padding(
+      padding:
+          EdgeInsets.only(left: Responsivity.automatic(16, mediaQueryData)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            padding: EdgeInsets.all(Responsivity.automatic(12, mediaQueryData)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                  Responsivity.automatic(17, mediaQueryData)),
+              color: clicked ? Colors.blue[800] : Colors.black26,
+            ),
+            child: Row(
+              children: [
+                if (name.isNotEmpty)
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: Responsivity.automatic(8, mediaQueryData),
+                      right: Responsivity.automatic(8, mediaQueryData),
+                    ),
+                    child: Text(
+                      name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+List<CategoryEntity> filterMenuItemList = [
+  CategoryEntity(id: 01, name: 'All', selected: true),
+  CategoryEntity(id: 02, name: 'Series', selected: false),
+  CategoryEntity(id: 03, name: 'Movies', selected: true),
+  CategoryEntity(id: 04, name: 'Animation', selected: false),
+  CategoryEntity(id: 01, name: 'All', selected: true),
+  CategoryEntity(id: 02, name: 'Series', selected: false),
+  CategoryEntity(id: 03, name: 'Movies', selected: true),
+  CategoryEntity(id: 04, name: 'Animation', selected: false),
+];

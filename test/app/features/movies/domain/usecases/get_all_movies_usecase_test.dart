@@ -64,7 +64,6 @@ void main() {
     expect(response.fold((l) => l, (r) => r), isA<List<MovieEntity>>());
   });
 
-  //TODO: teste de left no usecase
   test('Usecase:GETALLMOVIES > should return an left with http client error',
       () async {
     when(() => movieRepositoryImpl.getMovies())

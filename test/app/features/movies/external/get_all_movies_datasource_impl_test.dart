@@ -15,8 +15,6 @@ void main() {
     datasource = GetAllMoviesDatasourceImpl(http);
   });
 
-  const path = 'teste';
-
   final dummyList = [
     {
       "id": "01",

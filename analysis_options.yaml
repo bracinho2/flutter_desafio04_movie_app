@@ -9,3 +9,4 @@ linter:
      constant_identifier_names: false
      annotate_overrides: false
      overridden_fields: false
+     non_constant_identifier_names: false
