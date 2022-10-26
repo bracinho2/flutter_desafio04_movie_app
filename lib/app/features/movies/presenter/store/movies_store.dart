@@ -1,11 +1,11 @@
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/usecases/get_all_movies_usecase.dart';
 
-
-class MoviesStore extends StreamStore<Failure, List<MovieEntity>{
+class MoviesStore {
   final IGetAllMoviesUsecase _iGetAllMoviesUsecase;
 
   MoviesStore(
     this._iGetAllMoviesUsecase,
-  ) : super([]);
+  ) : super();
 
   Future<void> getAllMovies() async {
     final response = await _iGetAllMoviesUsecase.getMovies();

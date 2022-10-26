@@ -28,9 +28,11 @@ class MoviesModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/',
-        child: (context, args) => MoviesPage(
-              store: Modular.get<MoviesStore>(),
-            )),
+    ChildRoute(
+      '/',
+      child: (context, args) => MoviesPage(
+        store: Modular.get<MoviesStore>(),
+      ),
+    ),
   ];
 }
