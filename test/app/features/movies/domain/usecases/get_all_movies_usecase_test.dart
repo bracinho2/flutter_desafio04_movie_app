@@ -12,7 +12,7 @@ class MoviesRepositoryMock extends Mock implements IGetAllMoviesRepository {}
 
 void main() {
   late IGetAllMoviesRepository movieRepositoryImpl;
-  late GetAllMoviesImpl getAllMoviesImpl;
+  late GetAllMoviesUsecaseImpl getAllMoviesImpl;
 
   final level = LevelMovieEntity(id: 01, name: 'name');
   final category = CategoryEntity(id: 01, name: 'name', selected: true);
@@ -44,7 +44,7 @@ void main() {
 
   setUp(() {
     movieRepositoryImpl = MoviesRepositoryMock();
-    getAllMoviesImpl = GetAllMoviesImpl(movieRepositoryImpl);
+    getAllMoviesImpl = GetAllMoviesUsecaseImpl(movieRepositoryImpl);
   });
 
   test('Usecase:GETALLMOVIES > should movie list not null', () async {

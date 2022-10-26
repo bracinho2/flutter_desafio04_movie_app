@@ -1,5 +1,6 @@
 import 'package:flutter_desafio04_movie_app/app/core/core_module.dart';
-import 'package:flutter_desafio04_movie_app/app/features/movies/presenter/pages/movies_page.dart';
+import 'package:flutter_desafio04_movie_app/app/core/pages/splash_page.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/movies_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AppModule extends Module {
@@ -12,7 +13,8 @@ class AppModule extends Module {
   final List<ModularRoute> routes = [
     ChildRoute(
       '/',
-      child: ((context, args) => const MoviesPage()),
+      child: ((context, args) => const SplashPage()),
     ),
+    ModuleRoute('/movies/', module: MoviesModule())
   ];
 }

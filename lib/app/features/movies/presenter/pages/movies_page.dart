@@ -5,15 +5,25 @@ import 'package:cambona/widgets/app_bar_widget.dart';
 import 'package:cambona/widgets/text_title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/category_movie_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/presenter/store/movies_store.dart';
 
 class MoviesPage extends StatefulWidget {
-  const MoviesPage({super.key});
+  final MoviesStore store;
+  const MoviesPage({
+    super.key,
+    required this.store,
+  });
 
   @override
   State<MoviesPage> createState() => _MoviesPageState();
 }
 
 class _MoviesPageState extends State<MoviesPage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

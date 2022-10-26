@@ -7,10 +7,10 @@ abstract class IGetAllMoviesUsecase {
   Future<Either<Failure, List<MovieEntity>>> getMovies();
 }
 
-class GetAllMoviesImpl implements IGetAllMoviesUsecase {
+class GetAllMoviesUsecaseImpl implements IGetAllMoviesUsecase {
   final IGetAllMoviesRepository _iMoviesRepository;
 
-  GetAllMoviesImpl(this._iMoviesRepository);
+  GetAllMoviesUsecaseImpl(this._iMoviesRepository);
 
   @override
   Future<Either<Failure, List<MovieEntity>>> getMovies() async {
