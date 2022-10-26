@@ -6,6 +6,7 @@ import 'package:cambona/widgets/text_title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/category_movie_entity.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/presenter/store/movies_store.dart';
+import 'package:flutter_triple/flutter_triple.dart';
 
 class MoviesPage extends StatefulWidget {
   final MoviesStore store;
@@ -28,77 +29,80 @@ class _MoviesPageState extends State<MoviesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarMainWidget(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const TextTitleWidget(
-            title: 'Categories',
-          ),
-          SizedBox(
-            height: 50,
-            child: ListView.builder(
-              clipBehavior: Clip.hardEdge,
-              scrollDirection: Axis.horizontal,
-              itemCount: 15,
-              itemBuilder: ((context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: 20,
-                      height: 10,
-                      color: Colors.red,
-                      child: Text(Random().nextInt(10).toString()),
-                    ),
-                  )),
+      body: ScopedBuilder(
+        store: widget.store,
+        onState: (context, state) => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const TextTitleWidget(
+              title: 'Categories',
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              //clipBehavior: Clip.none,
-              //scrollDirection: Axis.horizontal,
-              itemCount: 50,
-              itemBuilder: ((context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                        ),
+            SizedBox(
+              height: 50,
+              child: ListView.builder(
+                clipBehavior: Clip.hardEdge,
+                scrollDirection: Axis.horizontal,
+                itemCount: 15,
+                itemBuilder: ((context, index) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: 20,
+                        height: 10,
+                        color: Colors.red,
+                        child: Text(Random().nextInt(10).toString()),
                       ),
-                      height: 110,
-                      child: Stack(
-                        children: [
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                color: Colors.yellow,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomRight: Radius.circular(10),
+                    )),
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                //clipBehavior: Clip.none,
+                //scrollDirection: Axis.horizontal,
+                itemCount: 50,
+                itemBuilder: ((context, index) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.black12,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                          ),
+                        ),
+                        height: 110,
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  color: Colors.yellow,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    bottomRight: Radius.circular(10),
+                                  ),
+                                ),
+                                height: 32,
+                                width: 50,
+                              ),
+                            ),
+                            const Align(
+                              alignment: Alignment.topRight,
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.heart_broken,
                                 ),
                               ),
-                              height: 32,
-                              width: 50,
                             ),
-                          ),
-                          const Align(
-                            alignment: Alignment.topRight,
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Icon(
-                                Icons.heart_broken,
-                              ),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  )),
+                    )),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
