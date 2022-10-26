@@ -5,7 +5,7 @@ class Responsivity {
     final size = data.size;
 
     //inserir o tamanho da LARGURA do mockup;
-    var coeficiente = tamanho / 375;
+    var coeficiente = tamanho / 414;
 
     return size.width * coeficiente;
   }
@@ -14,7 +14,7 @@ class Responsivity {
     final size = data.size;
 
     //inserir o tamanho da ALTURA do mockup;
-    var coeficiente = tamanho / 667;
+    var coeficiente = tamanho / 890;
 
     return size.height * coeficiente;
   }

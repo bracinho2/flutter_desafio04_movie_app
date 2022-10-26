@@ -17,6 +17,7 @@ dependencies:
   mocktail: ^0.3.0
   dartz: ^0.10.1
   flutter_modular: ^5.0.3
+  triple:
 
   cambona:
     path: cambona

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cambona/responsivity/responsivity.dart';
 import 'package:cambona/widgets/app_bar_widget.dart';
 import 'package:cambona/widgets/text_title_widget.dart';
@@ -14,6 +16,89 @@ class MoviesPage extends StatefulWidget {
 class _MoviesPageState extends State<MoviesPage> {
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const AppBarMainWidget(),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const TextTitleWidget(
+            title: 'Categories',
+          ),
+          SizedBox(
+            height: 50,
+            child: ListView.builder(
+              clipBehavior: Clip.hardEdge,
+              scrollDirection: Axis.horizontal,
+              itemCount: 15,
+              itemBuilder: ((context, index) => Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 20,
+                      height: 10,
+                      color: Colors.red,
+                      child: Text(Random().nextInt(10).toString()),
+                    ),
+                  )),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              //clipBehavior: Clip.none,
+              //scrollDirection: Axis.horizontal,
+              itemCount: 50,
+              itemBuilder: ((context, index) => Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.black12,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                      ),
+                      height: 110,
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: Colors.yellow,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10),
+                                ),
+                              ),
+                              height: 32,
+                              width: 50,
+                            ),
+                          ),
+                          const Align(
+                            alignment: Alignment.topRight,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(
+                                Icons.heart_broken,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Scaffold01 extends StatelessWidget {
+  const Scaffold01({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
         body: CustomScrollView(
@@ -26,8 +111,27 @@ class _MoviesPageState extends State<MoviesPage> {
               child: TextTitleWidget(title: 'Categories'),
             ),
             CategoryFilterWidget(),
+            MoviesLiss(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class MoviesLiss extends StatelessWidget {
+  const MoviesLiss({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final mediaQueryData = MediaQuery.of(context);
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) => Container(
+          color: Colors.amber,
+          height: 50,
+        ),
+        childCount: 50,
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_desafio04_movie_app/app/core/dummy_data/dummy_data.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_client_errors.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/infra/datasource/get_movies_by_string_datasource.dart';
@@ -11,7 +12,8 @@ class GetMoviesByStringDatasourceImpl implements IGetMoviesByStringDatasource {
   Future<List<Map<String, dynamic>>> getMovies({required String value}) async {
     final urlBase = value;
     try {
-      final response = await _httpClient.fetch(path: urlBase);
+      //final response = await _httpClient.fetch(path: urlBase);
+      final response = dummyDataList;
       return response;
     } on DioError catch (e, stackTrace) {
       if (e.response!.statusCode == 404) {
