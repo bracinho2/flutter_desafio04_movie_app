@@ -43,7 +43,13 @@ final appTheme = ThemeData(
       fontFamily: 'Roboto',
       fontSize: 16,
       //fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: secundaryColor,
+    ),
+    labelSmall: TextStyle(
+      fontFamily: 'Roboto',
+      fontSize: 16,
+      //fontWeight: FontWeight.bold,
+      color: secundaryColor,
     ),
     titleLarge: TextStyle(
       fontFamily: 'Roboto',

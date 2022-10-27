@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   
   cupertino_icons: ^1.0.2
-  dio: ^4.0.6
+  uno: ^1.0.1+5
   mocktail: ^0.3.0
   dartz: ^0.10.1
   flutter_modular: ^5.0.3

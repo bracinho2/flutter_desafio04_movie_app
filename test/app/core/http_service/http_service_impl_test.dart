@@ -1,9 +1,9 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:uno/uno.dart';
 
-class DioMock extends Mock implements Dio {}
+class DioMock extends Mock implements Uno {}
 
 void main() {
   late DioMock dio;
@@ -42,8 +42,14 @@ void main() {
   test('HTTPCLIENTE; Should return a list from API', () async {
     when(() => dio.get(any())).thenAnswer(
       (_) async => Response(
+        headers: {},
         data: dummyList,
-        requestOptions: RequestOptions(path: urlBase),
+        request: Request(
+            uri: Uri(),
+            method: 'post',
+            headers: {},
+            timeout: const Duration(seconds: 2)),
+        status: 200,
       ),
     );
 

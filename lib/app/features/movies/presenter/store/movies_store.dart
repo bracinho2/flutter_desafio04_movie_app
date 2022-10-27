@@ -8,14 +8,14 @@ class MoviesStore extends StreamStore<Failure, List<MovieEntity>> {
 
   MoviesStore(
     this._iGetAllMoviesUsecase,
-  ) : super([]) {
-    getAllMovies();
-  }
+  ) : super([]);
 
   Future<void> getAllMovies() async {
     setLoading(true);
     final response = await _iGetAllMoviesUsecase.getMovies();
-    response.fold((l) => null, (r) => print(r));
-    update([]);
+    response.fold((l) => null, (r) {
+      update(r);
+      print(r);
+    });
   }
 }
