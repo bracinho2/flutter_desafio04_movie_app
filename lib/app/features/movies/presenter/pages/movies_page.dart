@@ -91,10 +91,7 @@ class _MoviesPageState extends State<MoviesPage> {
                         child: Container(
                           decoration: const BoxDecoration(
                             color: Colors.black12,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(10),
-                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                           ),
                           height: 140,
                           child: Stack(
@@ -119,7 +116,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 20),
+                                    padding: const EdgeInsets.only(left: 30),
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
@@ -127,22 +124,52 @@ class _MoviesPageState extends State<MoviesPage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Accent: $accent',
+                                          title,
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleLarge,
                                         ),
-                                        Text(
-                                          accent,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .labelMedium,
+                                        const SizedBox(
+                                          height: 10,
                                         ),
-                                        Text(
-                                          'Level: $level',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .labelMedium,
+                                        Text.rich(
+                                          TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Accent: ',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelSmall,
+                                              ),
+                                              TextSpan(
+                                                text: accent,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelMedium,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text.rich(
+                                          TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Level: ',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelSmall,
+                                              ),
+                                              TextSpan(
+                                                text: level,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelMedium,
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -162,8 +189,10 @@ class _MoviesPageState extends State<MoviesPage> {
                                   height: 32,
                                   width: 50,
                                   child: Center(
-                                      child: Text(
-                                          state[index].evaluation.toString())),
+                                    child: Text(
+                                      state[index].evaluation.toString(),
+                                    ),
+                                  ),
                                 ),
                               ),
                               const Align(

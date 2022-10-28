@@ -1,3 +1,4 @@
+import 'package:flutter_desafio04_movie_app/app/core/api/api_paths.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_client_errors.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/infra/datasource/get_all_movies_datasource.dart';
@@ -10,8 +11,9 @@ class GetAllMoviesDatasourceImpl implements IGetAllMoviesDatasource {
   @override
   Future<List<Map<String, dynamic>>> getMovies() async {
     try {
-      final response =
-          await _httpClient.fetch(path: 'https://image.tmdb.org/t/p/w500/');
+      final response = await _httpClient.fetch(path: URLs.MOVIES_BASE_URL);
+
+      print(response);
 
       return response;
     } on UnoError catch (e, stackTrace) {

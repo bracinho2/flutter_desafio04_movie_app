@@ -42,7 +42,7 @@ final appTheme = ThemeData(
     labelMedium: TextStyle(
       fontFamily: 'Roboto',
       fontSize: 16,
-      //fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.bold,
       color: secundaryColor,
     ),
     labelSmall: TextStyle(
