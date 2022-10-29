@@ -13,8 +13,6 @@ class GetAllMoviesDatasourceImpl implements IGetAllMoviesDatasource {
     try {
       final response = await _httpClient.fetch(path: URLs.MOVIES_BASE_URL);
 
-      print(response);
-
       return response;
     } on UnoError catch (e, stackTrace) {
       if (e.response!.status == 404) {

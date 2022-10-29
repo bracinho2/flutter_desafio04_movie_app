@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:flutter_desafio04_movie_app/app/core/api/api_paths.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_client_errors.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service.dart';
 import 'package:uno/uno.dart';
@@ -14,15 +11,9 @@ class DioHttpClientImpl implements HttpClientService {
     try {
       final response = await _uno.get(path);
 
-      print(response.data.runtimeType);
+      final values = List<Map<String, dynamic>>.from(response.data['results']);
 
-      final values = (response.data['results'] as List)
-          .map((map) => Map<String, dynamic>)
-          .toList();
-
-      print(values.map((e) => print(e)));
-
-      return [];
+      return values;
     } on UnoError catch (e, stackTrace) {
       if (e.response!.status == 404) {
         throw HttpClientError(message: 'O servidor não foi encontrado!');
