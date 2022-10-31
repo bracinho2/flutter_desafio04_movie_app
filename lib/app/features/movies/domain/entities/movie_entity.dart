@@ -4,7 +4,7 @@ import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/
 class MovieEntity {
   final int id;
   final String name;
-  final LevelMovieEntity level;
+  final double popularity;
   final CategoryEntity category;
   final double evaluation;
   final String accent;
@@ -14,7 +14,7 @@ class MovieEntity {
   MovieEntity({
     required this.id,
     required this.name,
-    required this.level,
+    required this.popularity,
     required this.evaluation,
     required this.accent,
     required this.imagePath,
@@ -24,5 +24,5 @@ class MovieEntity {
 
   @override
   String toString() =>
-      'Movie > id: $id, name: $name, category: $category, level: $level, evaluation: $evaluation, accent: $accent, imagePath: $imagePath, favorite: $favorite';
+      'Movie > id: $id, name: $name, category: $category, popularity: $popularity, evaluation: $evaluation, accent: $accent, imagePath: $imagePath, favorite: $favorite';
 }

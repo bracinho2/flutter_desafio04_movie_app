@@ -11,7 +11,7 @@ class GetAllMoviesDatasourceImpl implements IGetAllMoviesDatasource {
   @override
   Future<List<Map<String, dynamic>>> getMovies() async {
     try {
-      final response = await _httpClient.fetch(path: URLs.MOVIES_BASE_URL);
+      final response = await _httpClient.fetch(path: URLS.MOVIES_BASE_URL);
 
       return response;
     } on UnoError catch (e, stackTrace) {

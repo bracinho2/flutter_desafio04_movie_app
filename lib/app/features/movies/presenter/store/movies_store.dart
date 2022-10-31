@@ -15,7 +15,7 @@ class MoviesStore extends StreamStore<Failure, List<MovieEntity>> {
     final response = await _iGetAllMoviesUsecase.getMovies();
     response.fold((l) => null, (r) {
       update(r);
-      print(r);
+      print(r.first);
     });
   }
 }

@@ -53,7 +53,7 @@ final appTheme = ThemeData(
     ),
     titleLarge: TextStyle(
       fontFamily: 'Roboto',
-      fontSize: 30,
+      fontSize: 24,
       color: secundaryColor,
     ),
   ),

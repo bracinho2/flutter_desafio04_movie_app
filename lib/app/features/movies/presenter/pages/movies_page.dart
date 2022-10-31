@@ -1,9 +1,8 @@
-import 'dart:math';
-
 import 'package:cambona/responsivity/responsivity.dart';
 import 'package:cambona/widgets/app_bar_widget.dart';
 import 'package:cambona/widgets/text_title_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_desafio04_movie_app/app/core/api/api_paths.dart';
 import 'package:flutter_desafio04_movie_app/app/core/dummy_data/dummy_data.dart';
 import 'package:flutter_desafio04_movie_app/app/core/errors/errors.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/category_movie_entity.dart';
@@ -85,7 +84,8 @@ class _MoviesPageState extends State<MoviesPage> {
                     itemBuilder: ((context, index) {
                       final title = state[index].name;
                       final accent = state[index].accent;
-                      final level = state[index].level.name;
+                      final popularidade = state[index].popularity;
+                      final imagePath = state[index].imagePath;
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
@@ -94,87 +94,91 @@ class _MoviesPageState extends State<MoviesPage> {
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                           ),
                           height: 140,
+                          width: double.infinity,
                           child: Stack(
                             children: [
-                              Row(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(
-                                              state[index].imagePath),
+                              Container(
+                                child: Row(
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(
+                                                URLS.REQUEST_IMG(imagePath)),
+                                          ),
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(10),
+                                            bottomLeft: Radius.circular(10),
+                                          ),
                                         ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(10),
-                                          bottomLeft: Radius.circular(10),
-                                        ),
+                                        width: 116,
                                       ),
-                                      width: 116,
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 30),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          title,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleLarge,
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        Text.rich(
-                                          TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'Accent: ',
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .labelSmall,
-                                              ),
-                                              TextSpan(
-                                                text: accent,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .labelMedium,
-                                              ),
-                                            ],
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 30),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            title,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleLarge,
                                           ),
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                        Text.rich(
-                                          TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'Level: ',
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .labelSmall,
-                                              ),
-                                              TextSpan(
-                                                text: level,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .labelMedium,
-                                              ),
-                                            ],
+                                          const SizedBox(
+                                            height: 10,
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ],
+                                          Text.rich(
+                                            TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Language: ',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .labelSmall,
+                                                ),
+                                                TextSpan(
+                                                  text: accent,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .labelMedium,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text.rich(
+                                            TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Popularity: ',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .labelSmall,
+                                                ),
+                                                TextSpan(
+                                                  text: popularidade.toString(),
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .labelMedium,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                               Align(
                                 alignment: Alignment.bottomRight,
@@ -200,7 +204,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                 child: Padding(
                                   padding: EdgeInsets.all(8.0),
                                   child: Icon(
-                                    Icons.heart_broken,
+                                    Icons.favorite,
                                   ),
                                 ),
                               ),
