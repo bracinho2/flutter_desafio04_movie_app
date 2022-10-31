@@ -22,7 +22,7 @@ void main() {
     MovieEntity(
       id: 01,
       name: 'My Movie',
-      level: level,
+      popularity: 10.92,
       evaluation: 9.5,
       accent: 'teste',
       imagePath: 'imagePath',
@@ -32,7 +32,7 @@ void main() {
     MovieEntity(
       id: 01,
       name: 'name',
-      level: level,
+      popularity: 10.92,
       evaluation: 9.5,
       accent: 'teste',
       imagePath: 'imagePath',

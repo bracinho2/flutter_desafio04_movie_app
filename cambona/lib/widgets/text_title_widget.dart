@@ -13,7 +13,6 @@ class TextTitleWidget extends StatelessWidget {
     final mediaQueryData = MediaQuery.of(context);
     return Padding(
       padding: EdgeInsets.only(
-        top: Responsivity.automatic(32, mediaQueryData),
         bottom: Responsivity.automatic(24, mediaQueryData),
       ),
       child: Padding(
