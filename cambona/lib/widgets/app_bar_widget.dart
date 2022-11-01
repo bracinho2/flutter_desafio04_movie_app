@@ -2,8 +2,10 @@ import 'package:cambona/responsivity/responsivity.dart';
 import 'package:flutter/material.dart';
 
 class AppBarMainWidget extends StatelessWidget implements PreferredSizeWidget {
+  final void Function(String)? onChanged;
   const AppBarMainWidget({
     Key? key,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
@@ -22,6 +24,7 @@ class AppBarMainWidget extends StatelessWidget implements PreferredSizeWidget {
           ),
           Expanded(
             child: TextFormField(
+              onChanged: onChanged,
               style: Theme.of(context).textTheme.labelMedium,
               decoration: const InputDecoration(
                 suffixIcon: Icon(

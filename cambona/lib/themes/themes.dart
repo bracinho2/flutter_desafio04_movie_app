@@ -39,6 +39,12 @@ final appTheme = ThemeData(
 
   //TEXTOS
   textTheme: const TextTheme(
+    labelLarge: TextStyle(
+      fontFamily: 'Roboto',
+      fontSize: 22,
+      fontWeight: FontWeight.bold,
+      color: secundaryColor,
+    ),
     labelMedium: TextStyle(
       fontFamily: 'Roboto',
       fontSize: 16,

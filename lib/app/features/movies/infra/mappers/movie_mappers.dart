@@ -12,6 +12,8 @@ class MovieMapper {
       imagePath: map['poster_path'],
       category: CategoryEntity(id: 01, name: 'MinhaCategoria', selected: false),
       favorite: true,
+      overview: map['overview'],
+      releaseDate: toYear(map['release_date']),
     );
   }
 }
@@ -21,4 +23,9 @@ bool toBoolean(String str, [bool strict = false]) {
     return str == '1' || str == 'true';
   }
   return str != '0' && str != 'false' && str != '';
+}
+
+String toYear(String string) {
+  var substring = string.substring(0, 4);
+  return substring;
 }

@@ -10,12 +10,29 @@ class MoviesStore extends StreamStore<Failure, List<MovieEntity>> {
     this._iGetAllMoviesUsecase,
   ) : super([]);
 
+  List<MovieEntity>? cachedMovies;
+
   Future<void> getAllMovies() async {
     setLoading(true);
     final response = await _iGetAllMoviesUsecase.getMovies();
     response.fold((l) => null, (r) {
+      cachedMovies = r;
       update(r);
-      print(r.first);
     });
+  }
+
+  void findMovie({required String filter}) {
+    if (filter.isEmpty) {
+      update(cachedMovies!);
+    } else {
+      List<MovieEntity> tempList = cachedMovies!
+          .where((movie) => movie.name
+              .toString()
+              .toLowerCase()
+              .contains(filter.toLowerCase()))
+          .toList();
+
+      update(tempList);
+    }
   }
 }
