@@ -15,30 +15,31 @@ void main() {
   late IGetMoviesByStringRepository repository;
   late IGetMoviesByStringUsecase usecase;
 
-  final level = LevelMovieEntity(id: 01, name: 'name');
   final category = CategoryEntity(id: 01, name: 'name', selected: true);
 
   final movies = [
     MovieEntity(
-      id: 01,
-      name: 'My Movie',
-      popularity: 10.92,
-      evaluation: 9.5,
-      accent: 'teste',
-      imagePath: 'imagePath',
-      category: category,
-      favorite: false,
-    ),
+        id: 01,
+        name: 'My Movie',
+        popularity: 10.92,
+        evaluation: 9.5,
+        accent: 'teste',
+        imagePath: 'imagePath',
+        category: category,
+        favorite: false,
+        overview: '',
+        releaseDate: ''),
     MovieEntity(
-      id: 01,
-      name: 'name',
-      popularity: 10.92,
-      evaluation: 9.5,
-      accent: 'teste',
-      imagePath: 'imagePath',
-      category: category,
-      favorite: false,
-    ),
+        id: 01,
+        name: 'name',
+        popularity: 10.92,
+        evaluation: 9.5,
+        accent: 'teste',
+        imagePath: 'imagePath',
+        category: category,
+        favorite: false,
+        overview: '',
+        releaseDate: ''),
   ];
 
   final failure = HttpClientError(message: 'error');

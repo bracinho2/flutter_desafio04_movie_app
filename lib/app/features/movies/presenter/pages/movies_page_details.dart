@@ -36,54 +36,59 @@ class _MoviesPageDetailsState extends State<MoviesPageDetails> {
               URLS.REQUEST_IMG(widget.movie.imagePath),
             ),
           ),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(20),
-          ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+        child: Stack(
+          alignment: Alignment.bottomCenter,
           children: [
-            Container(
-              color: Colors.black54,
-              height: 400,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    widget.movie.name.toUpperCase(),
-                    style: Theme.of(context).textTheme.labelLarge,
-                    textAlign: TextAlign.center,
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
                   ),
-                  Text(
-                    widget.movie.releaseDate,
-                    style: Theme.of(context).textTheme.titleLarge,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Story Line',
-                          style: Theme.of(context).textTheme.labelLarge,
-                          textAlign: TextAlign.left,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          widget.movie.overview,
-                          style: Theme.of(context).textTheme.labelMedium,
-                          textAlign: TextAlign.left,
-                        ),
-                      ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      widget.movie.name.toUpperCase(),
+                      style: Theme.of(context).textTheme.labelLarge,
+                      textAlign: TextAlign.center,
                     ),
-                  )
-                ],
+                    Text(
+                      widget.movie.releaseDate,
+                      style: Theme.of(context).textTheme.titleLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Story Line',
+                            style: Theme.of(context).textTheme.labelLarge,
+                            textAlign: TextAlign.left,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.movie.overview,
+                            style: Theme.of(context).textTheme.labelMedium,
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             )
           ],
