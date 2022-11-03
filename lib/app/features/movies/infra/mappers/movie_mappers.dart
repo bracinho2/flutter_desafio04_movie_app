@@ -5,10 +5,10 @@ class MovieMapper {
   static MovieEntity fromMap(Map<String, dynamic> map) {
     return MovieEntity(
       id: map['id'],
-      name: map['original_title'],
+      name: map['title'],
       popularity: map['popularity'],
       evaluation: map['vote_average'],
-      accent: map['original_language'],
+      language: map['original_language'],
       imagePath: map['poster_path'],
       category: CategoryEntity(id: 01, name: 'MinhaCategoria', selected: false),
       favorite: true,

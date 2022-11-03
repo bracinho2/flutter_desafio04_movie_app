@@ -3,7 +3,7 @@ import 'package:flutter_desafio04_movie_app/app/features/movies/domain/repositor
 import 'package:flutter_desafio04_movie_app/app/features/movies/infra/datasource/get_movies_by_string_datasource.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/infra/repository/get_movies_by_string_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:peabiru/peabiru.dart';
 
 class GetMoviesByStringMock extends Mock
     implements IGetMoviesByStringDatasource {}
@@ -22,23 +22,27 @@ void main() {
   List<Map<String, dynamic>> dummyList = [
     {
       "id": "01",
-      "name": "01",
-      "level": {"id": "01", "name": "name"},
-      "category": {"id": "01", "name": "name"},
-      "evaluation": "01",
-      "accent": "01",
-      "imagePath": "01",
-      "favorite": "true"
+      "title": "name",
+      "popularity": 10.92,
+      "category": {"id": "01", "name": "category"},
+      "vote_average": 10.92,
+      "original_language": "EUA",
+      "poster_path": "/oooo.jpg",
+      "favorite": "true",
+      "overview": "bla bla bla",
+      "release_date": "2022-10-20"
     },
     {
       "id": "01",
-      "name": "01",
-      "level": {"id": "01", "name": "name"},
-      "category": {"id": "01", "name": "name"},
-      "evaluation": "01",
-      "accent": "01",
-      "imagePath": "01",
-      "favorite": "true"
+      "title": "name",
+      "popularity": 10.92,
+      "category": {"id": "01", "name": "category"},
+      "vote_average": 10.92,
+      "original_language": "EUA",
+      "poster_path": "/oooo.jpg",
+      "favorite": "true",
+      "overview": "bla bla bla",
+      "release_date": "2022-10-20"
     }
   ];
 

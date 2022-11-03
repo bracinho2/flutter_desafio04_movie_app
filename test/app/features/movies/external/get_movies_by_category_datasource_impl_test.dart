@@ -3,7 +3,7 @@ import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/
 import 'package:flutter_desafio04_movie_app/app/features/movies/external/get_movies_by_category_datasource_impl.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/infra/datasource/get_movies_by_category_datasource.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:peabiru/peabiru.dart';
 
 class HttpClientMock extends Mock implements HttpClientService {}
 

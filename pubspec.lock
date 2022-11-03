@@ -86,7 +86,7 @@ packages:
     source: hosted
     version: "3.0.2"
   cupertino_icons:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
@@ -126,7 +126,7 @@ packages:
     source: hosted
     version: "2.0.1"
   flutter_modular:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_modular
       url: "https://pub.dartlang.org"
@@ -145,7 +145,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_triple:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_triple
       url: "https://pub.dartlang.org"
@@ -243,7 +243,7 @@ packages:
     source: hosted
     version: "1.0.0"
   mocktail:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: mocktail
       url: "https://pub.dartlang.org"
@@ -284,6 +284,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
+  peabiru:
+    dependency: "direct main"
+    description:
+      path: peabiru
+      relative: true
+    source: path
+    version: "0.0.1"
   pool:
     dependency: transitive
     description:
@@ -430,7 +437,7 @@ packages:
     source: hosted
     version: "2.0.4"
   uno:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: uno
       url: "https://pub.dartlang.org"

@@ -7,7 +7,7 @@ import 'package:flutter_desafio04_movie_app/app/features/movies/infra/repository
 import 'package:flutter_desafio04_movie_app/app/features/movies/presenter/pages/movies_page.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/presenter/pages/movies_page_details.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/presenter/store/movies_store.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:peabiru/peabiru.dart';
 
 class MoviesModule extends Module {
   @override

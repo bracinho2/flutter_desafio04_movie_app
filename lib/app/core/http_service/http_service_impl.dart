@@ -1,6 +1,6 @@
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_client_errors.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service.dart';
-import 'package:uno/uno.dart';
+import 'package:peabiru/peabiru.dart';
 
 class DioHttpClientImpl implements HttpClientService {
   final Uno _uno;

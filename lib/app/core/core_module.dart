@@ -1,7 +1,6 @@
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service_impl.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:uno/uno.dart';
+import 'package:peabiru/peabiru.dart';
 
 class CoreModule extends Module {
   @override

@@ -16,7 +16,10 @@ class TextTitleWidget extends StatelessWidget {
         bottom: Responsivity.automatic(24, mediaQueryData),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 22, right: 22),
+        padding: EdgeInsets.only(
+          left: Responsivity.automatic(22, mediaQueryData),
+          right: Responsivity.automatic(22, mediaQueryData),
+        ),
         child: Text(
           title,
           style: Theme.of(context).textTheme.titleLarge,

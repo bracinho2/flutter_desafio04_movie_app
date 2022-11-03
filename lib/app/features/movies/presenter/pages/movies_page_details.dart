@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_desafio04_movie_app/app/core/api/api_paths.dart';
 
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/movie_entity.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:cambona/widgets/back_button_widget.dart';
+import 'package:cambona/widgets/story_line_widget.dart';
+import 'package:peabiru/peabiru.dart';
 
 class MoviesPageDetails extends StatefulWidget {
   final MovieEntity movie;
@@ -18,16 +20,7 @@ class MoviesPageDetails extends StatefulWidget {
 class _MoviesPageDetailsState extends State<MoviesPageDetails> {
   @override
   Widget build(BuildContext context) {
-    final mediaQueryData = MediaQuery.of(context);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(
-          Icons.keyboard_return_sharp,
-        ),
-        onPressed: () {
-          Modular.to.pop();
-        },
-      ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -38,59 +31,17 @@ class _MoviesPageDetailsState extends State<MoviesPageDetails> {
           ),
         ),
         child: Stack(
-          alignment: Alignment.bottomCenter,
           children: [
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.black54,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40),
-                  ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      widget.movie.name.toUpperCase(),
-                      style: Theme.of(context).textTheme.labelLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      widget.movie.releaseDate,
-                      style: Theme.of(context).textTheme.titleLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Story Line',
-                            style: Theme.of(context).textTheme.labelLarge,
-                            textAlign: TextAlign.left,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            widget.movie.overview,
-                            style: Theme.of(context).textTheme.labelMedium,
-                            textAlign: TextAlign.left,
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
+            BackButtonWidget(
+              onTap: () {
+                Modular.to.pop(context);
+              },
+            ),
+            StoryLineWidget(
+              name: widget.movie.name,
+              releaseDate: widget.movie.releaseDate,
+              overview: widget.movie.overview,
+            ),
           ],
         ),
       ),

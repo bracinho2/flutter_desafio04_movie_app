@@ -6,7 +6,7 @@ class MovieEntity {
   final double popularity;
   final CategoryEntity category;
   final double evaluation;
-  final String accent;
+  final String language;
   final String imagePath;
   final bool favorite;
   final String overview;
@@ -17,7 +17,7 @@ class MovieEntity {
       required this.name,
       required this.popularity,
       required this.evaluation,
-      required this.accent,
+      required this.language,
       required this.imagePath,
       required this.category,
       required this.favorite,
@@ -26,5 +26,5 @@ class MovieEntity {
 
   @override
   String toString() =>
-      'Movie > id: $id, name: $name, category: $category, popularity: $popularity, evaluation: $evaluation, accent: $accent, imagePath: $imagePath, favorite: $favorite, release date: $releaseDate';
+      'Movie > id: $id, name: $name, category: $category, popularity: $popularity, evaluation: $evaluation, language: $language, imagePath: $imagePath, favorite: $favorite, release date: $releaseDate';
 }

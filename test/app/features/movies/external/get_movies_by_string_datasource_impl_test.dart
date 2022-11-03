@@ -2,7 +2,7 @@ import 'package:flutter_desafio04_movie_app/app/core/http_service/http_service.d
 import 'package:flutter_desafio04_movie_app/app/features/movies/external/get_movies_by_string_datasource_impl.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/infra/datasource/get_movies_by_string_datasource.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:peabiru/peabiru.dart';
 
 class HttpClientMock extends Mock implements HttpClientService {}
 

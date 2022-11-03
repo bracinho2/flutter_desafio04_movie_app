@@ -1,12 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_desafio04_movie_app/app/core/http_service/http_client_errors.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/category_movie_entity.dart';
-import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/level_movie_entity.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/movie_entity.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/repositories/get_movies_by_category_repository.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/usecases/get_movies_by_filter_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:peabiru/peabiru.dart';
 
 class MoviesRepositoryMock extends Mock
     implements IGetMoviesByCategoryRepository {}
@@ -15,7 +14,6 @@ void main() {
   late IGetMoviesByCategoryRepository repository;
   late IGetMoviesByCategoryUsecase usecase;
 
-  final level = LevelMovieEntity(id: 01, name: 'name');
   final category = CategoryEntity(id: 01, name: 'name', selected: true);
 
   final movies = [
@@ -24,7 +22,7 @@ void main() {
         name: 'My Movie',
         popularity: 10.92,
         evaluation: 9.5,
-        accent: 'teste',
+        language: 'teste',
         imagePath: 'imagePath',
         category: category,
         favorite: false,
@@ -35,7 +33,7 @@ void main() {
         name: 'name',
         popularity: 10.92,
         evaluation: 9.5,
-        accent: 'teste',
+        language: 'teste',
         imagePath: 'imagePath',
         category: category,
         favorite: false,
