@@ -24,7 +24,7 @@ class _MoviesPageDetailsState extends State<MoviesPageDetails> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.fill,
+            fit: BoxFit.fitHeight,
             image: NetworkImage(
               URLS.REQUEST_IMG(widget.movie.imagePath),
             ),

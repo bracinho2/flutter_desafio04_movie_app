@@ -18,7 +18,7 @@ class StoryLineWidget extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: Responsivity.automatic(400, mediaQueryData),
+        height: Responsivity.automatic(300, mediaQueryData),
         decoration: BoxDecoration(
           color: Colors.black54,
           borderRadius: BorderRadius.only(

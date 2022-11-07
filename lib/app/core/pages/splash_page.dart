@@ -22,9 +22,13 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Center(
-      child: Text('MoviesAPP'),
-    ));
+    return Scaffold(
+      body: Center(
+        child: Text(
+          'MoviesAPP',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+      ),
+    );
   }
 }

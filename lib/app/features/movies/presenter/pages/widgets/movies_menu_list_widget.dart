@@ -19,29 +19,45 @@ class MoviesListWidget extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
-        child: ListView.builder(
-          clipBehavior: Clip.antiAlias,
-          itemCount: state.length,
-          itemBuilder: ((context, index) {
-            final title = state[index].name;
-            final language = state[index].language;
-            final popularity = state[index].popularity.toString();
-            final imagePath = state[index].imagePath;
-            final evaluation = state[index].evaluation.toString();
-            return MovieListItemWidget(
-              title: title,
-              language: language,
-              popularity: popularity,
-              evaluation: evaluation,
-              imagePath: URLS.REQUEST_IMG(imagePath),
-              onTap: () {
-                Modular.to.pushNamed(
-                  '/movies/details/',
-                  arguments: state[index],
-                );
-              },
-            );
-          }),
+        child: ShaderMask(
+          shaderCallback: (Rect rect) {
+            return const LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.black,
+                Colors.transparent,
+                Colors.transparent,
+                Colors.black,
+              ],
+              stops: [0.0, 0.1, 0.9, 1.0],
+            ).createShader(rect);
+          },
+          blendMode: BlendMode.dstOut,
+          child: ListView.builder(
+            clipBehavior: Clip.antiAlias,
+            itemCount: state.length,
+            itemBuilder: ((context, index) {
+              final title = state[index].name;
+              final language = state[index].language;
+              final popularity = state[index].popularity.toString();
+              final imagePath = state[index].imagePath;
+              final evaluation = state[index].evaluation.toString();
+              return MovieListItemWidget(
+                title: title,
+                language: language,
+                popularity: popularity,
+                evaluation: evaluation,
+                imagePath: URLS.REQUEST_IMG(imagePath),
+                onTap: () {
+                  Modular.to.pushNamed(
+                    '/movies/details/',
+                    arguments: state[index],
+                  );
+                },
+              );
+            }),
+          ),
         ),
       ),
     );

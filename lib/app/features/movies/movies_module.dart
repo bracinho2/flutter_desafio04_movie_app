@@ -25,7 +25,7 @@ class MoviesModule extends Module {
         (i) => GetAllMoviesUsecaseImpl(i())),
 
     //Store
-    Bind.lazySingleton<MoviesStore>((i) => MoviesStore(i())),
+    Bind.lazySingleton<MoviesStore>((i) => MoviesStore(i(), i())),
   ];
 
   @override

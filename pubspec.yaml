@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
 
   dartz: ^0.10.1
+  triple_test: ^1.0.0+1
 
   cambona:
     path: cambona

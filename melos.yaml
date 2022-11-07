@@ -1,0 +1,9 @@
+name: flutter_desafio04_movie_app
+
+packages:
+  - cambona/**
+  - peabiru/**
+  - '*'
+
+scripts:
+  hello: echo 'Hello World Melos =)'
