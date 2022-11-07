@@ -21,8 +21,8 @@ class BackButtonWidget extends StatelessWidget {
             top: Responsivity.automatic(20, mediaQueryData),
           ),
           child: Container(
-            height: Responsivity.automatic(45, mediaQueryData),
-            width: Responsivity.automatic(45, mediaQueryData),
+            height: Responsivity.automatic(30, mediaQueryData),
+            width: Responsivity.automatic(30, mediaQueryData),
             decoration: const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
@@ -30,7 +30,7 @@ class BackButtonWidget extends StatelessWidget {
             child: Icon(
               Icons.arrow_back,
               color: Theme.of(context).primaryColor,
-              size: Responsivity.automatic(30, mediaQueryData),
+              size: Responsivity.automatic(15, mediaQueryData),
             ),
           ),
         ),
