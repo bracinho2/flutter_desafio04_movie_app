@@ -1,16 +1,19 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_desafio04_movie_app/app/core/errors/errors.dart';
+import 'package:flutter_desafio04_movie_app/app/core/snake_bar_manager/snake_bar_manager.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/category_movie_entity.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/domain/entities/movie_entity.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/errors/errors.dart';
+import 'package:flutter_desafio04_movie_app/app/features/movies/domain/usecases/get_all_movies_usecase.dart';
 import 'package:flutter_desafio04_movie_app/app/features/movies/presenter/store/movies_store.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:peabiru/peabiru.dart';
 import 'package:triple_test/triple_test.dart';
 
-class MockMoviesStore extends MockStore<Failure, List<MovieEntity>>
-    implements MoviesStore {}
+class MockUseCase extends MockStore<Failure, List<MovieEntity>>
+    implements IGetAllMoviesUsecase {}
 
-final mock = MockMoviesStore();
+final usecase = MockUseCase();
 
 void main() {
   final movies = [
@@ -40,8 +43,8 @@ void main() {
 
   test('bla', () {
     whenObserve<Failure, List<MovieEntity>>(
-      mock,
-      input: () => mock.getAllMovies(),
+      usecase,
+      input: () => usecase.getMovies(),
       initialState: [],
       triples: [
         Triple(state: movies),
@@ -50,13 +53,32 @@ void main() {
       ],
     );
   });
-  storeTest<MockMoviesStore>(
-    'Testing triple',
-    build: () => MockMoviesStore(),
-    act: (store) => mock.getAllMovies(),
+  storeTest<MoviesStore>(
+    'Should return a Triple State',
+    build: () {
+      when(() => usecase.getMovies()).thenAnswer((_) async => right(movies));
+      final store = MoviesStore(usecase, SnakeBarManager());
+      return store;
+    },
+    act: (store) => store.getAllMovies(),
     expect: () => [
+      tripleLoading,
       tripleState,
-      right(movies),
+    ],
+  );
+
+  storeTest<MoviesStore>(
+    'Should return a Triple Error',
+    build: () {
+      when(() => usecase.getMovies())
+          .thenAnswer((_) async => left(UsecaseError(message: 'Error')));
+      final store = MoviesStore(usecase, SnakeBarManager());
+      return store;
+    },
+    act: (store) => store.getAllMovies(),
+    expect: () => [
+      tripleLoading,
+      tripleError,
     ],
   );
 }
