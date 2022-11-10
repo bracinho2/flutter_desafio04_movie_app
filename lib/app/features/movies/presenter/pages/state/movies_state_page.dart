@@ -5,11 +5,19 @@ abstract class IMoviesState {}
 class InitialState extends IMoviesState {}
 
 class DataState extends IMoviesState {
-  final List<MovieEntity> allMovies;
+  final List<MovieEntity> movies;
 
   DataState({
-    required this.allMovies,
+    required this.movies,
   });
+
+  DataState copyWith({
+    List<MovieEntity>? movies,
+  }) {
+    return DataState(
+      movies: movies ?? this.movies,
+    );
+  }
 }
 
 class FilteredState extends IMoviesState {
@@ -18,4 +26,12 @@ class FilteredState extends IMoviesState {
   FilteredState({
     required this.filteredMovies,
   });
+
+  FilteredState copyWith({
+    List<MovieEntity>? filteredMovies,
+  }) {
+    return FilteredState(
+      filteredMovies: filteredMovies ?? this.filteredMovies,
+    );
+  }
 }
